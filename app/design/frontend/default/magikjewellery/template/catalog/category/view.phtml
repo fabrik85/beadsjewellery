@@ -1,0 +1,52 @@
+<?php
+/**
+ * Theme: Magik Jewellery
+ * Author: MagentoMagik.com
+ * Version: 1.5
+ * URL: http://www.magentomagik.com/magento-themes/free-magento-themes/magik-jewellery-magento-theme/
+ * Source: http://www.magentomagik.com/
+ **/
+?>
+<?php
+/**
+ * Category view template
+ *
+ * @see Mage_Catalog_Block_Category_View
+ */
+?>
+<?php
+    $_helper    = $this->helper('catalog/output');
+    $_category  = $this->getCurrentCategory();
+    $_imgHtml   = '';
+    if ($_imageUrl = $_category->getImageUrl()) {
+        $_imgHtml = '<img src="'.$_imageUrl.'" alt="'.$this->htmlEscape($_category->getName()).'" height="188px" width="180px"/>';
+        $_imgHtml = $_helper->categoryAttribute($_category, $_imgHtml, 'image');
+    }
+?>
+<?php  
+    if($_imgHtml): 
+?>
+<div id="imgCategoryDetail" class="threeHundred center alpha">
+     <a href=""><?php echo $_imgHtml?></a>
+ </div>
+<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+<div id="categoryDescription" class="threeNinety omega">
+	<?php if($this->IsRssCatalogEnable() && $this->IsTopCategory()): ?>
+		<a href="<?php echo $this->getRssLink() ?>" class="link-feed right"><?php echo $this->__('Subscribe to RSS Feed') ?></a>
+	<?php endif; ?>
+	<h1 id="txtCategoryThemeHeader" class="categoryDetailHeader"><?php echo $_helper->categoryAttribute($_category, $this->htmlEscape($_category->getName()), 'name') ?></h1>
+	<?php if($_description=$_category->getDescription()): ?>
+		<div class="theme">
+			<div id="txtCategoryTheme" class="txtCategoryThemeDescription">
+				<?php echo $_helper->categoryAttribute($_category, $_description, 'description') ?>
+			</div>
+		</div>
+	<?php endif; ?>
+</div>
+<?php endif;?>
+<div class="clear"> </div>
+<?php echo $this->getCmsBlockHtml() ?>
+<?php echo $this->getProductListHtml() ?>
+
+
+

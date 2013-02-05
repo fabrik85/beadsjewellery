@@ -1,0 +1,25 @@
+<?php
+/**
+ * Theme: Magik Jewellery
+ * Author: MagentoMagik.com
+ * Version: 1.5
+ * URL: http://www.magentomagik.com/magento-themes/free-magento-themes/magik-jewellery-magento-theme/
+ * Source: http://www.magentomagik.com/
+ **/
+?>
+<?php 
+/**
+ * Store switcher template
+ *
+ * @see Mage_Core_Block_Store_Switcher
+ */
+
+?>
+<?php if(count($this->getGroups())>1): ?>
+    <select id="select-store" onchange="location.href=this.value">
+    <?php foreach ($this->getGroups() as $_group): ?>
+        <?php $_selected = ($_group->getId()==$this->getCurrentGroupId()) ? 'selected="selected"' : '' ?>
+        <option value="<?php echo $_group->getHomeUrl() ?>" <?php echo $_selected ?>><?php echo $this->htmlEscape($_group->getName()) ?></option>
+    <?php endforeach; ?>
+    </select>
+<?php endif; ?>

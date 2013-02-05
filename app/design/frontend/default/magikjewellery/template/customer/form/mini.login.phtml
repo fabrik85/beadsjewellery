@@ -1,0 +1,16 @@
+<?php
+/**
+ * Theme: Magik Jewellery
+ * Author: MagentoMagik.com
+ * Version: 1.5
+ * URL: http://www.magentomagik.com/magento-themes/free-magento-themes/magik-jewellery-magento-theme/
+ * Source: http://www.magentomagik.com/
+ **/
+?>
+<form action="<?php echo $this->getPostActionUrl() ?>" method="post">
+    <table width="100%" class="mini-login">
+        <tr><td><?php echo $this->__('Email') ?>:</td><td><input name="login[username]" /></td></tr>
+        <tr><td><?php echo $this->__('Password') ?>:</td><td><input name="login[password]" /></td></tr>
+        <tr><td>&nbsp;</td><td><input type="submit" value="<?php echo $this->__('Login') ?>" /></td></tr>
+    </table>
+</form>

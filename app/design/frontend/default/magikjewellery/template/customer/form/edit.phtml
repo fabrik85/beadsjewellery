@@ -1,0 +1,89 @@
+<?php
+/**
+ * Theme: Magik Jewellery
+ * Author: MagentoMagik.com
+ * Version: 1.5
+ * URL: http://www.magentomagik.com/magento-themes/free-magento-themes/magik-jewellery-magento-theme/
+ * Source: http://www.magentomagik.com/
+ **/
+?>
+<div class="page-head">
+    <h2><?php echo $this->__('Edit Account Information') ?></h2>
+</div>
+<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+<div>
+	<form action="<?php echo $this->getUrl('customer/account/editPost') ?>" method="post" id="form-validate">
+	<fieldset class="group-select">
+	    <?php echo $this->getBlockHtml('formkey')?>
+	    <?php echo $this->getLayout()->createBlock('customer/widget_name')->setObject($this->getCustomer())->toHtml() ?>
+	    <div class="clear"> </div>
+	    <div class="input-box">
+			<label for="email"><?php echo $this->__('Email Address') ?></label><span class="required">*</span><br>
+			<input type="text" name="email" id="email" value="<?php echo $this->htmlEscape($this->getCustomer()->getEmail()) ?>" title="<?php echo $this->__('Email Address') ?>" class="required-entry validate-email input-text" />
+		</div>
+	    <?php $_dob = $this->getLayout()->createBlock('customer/widget_dob') ?>
+		<?php if ($_dob->isEnabled()): ?>
+	        <li><?php echo $_dob->setDate($this->getCustomer()->getDob())->toHtml() ?></li>
+		<?php endif ?>
+		<?php $_taxvat = $this->getLayout()->createBlock('customer/widget_taxvat') ?>
+		<?php if ($_taxvat->isEnabled()): ?>
+	    	<li><?php echo $_taxvat->setTaxvat($this->getCustomer()->getTaxvat())->toHtml() ?></li>
+		<?php endif ?>
+	</fieldset>
+	<br/>
+	<div class="">
+		<input type="checkbox" name="change_password" id="change_password" value="1" onclick="setPasswordForm(this.checked)" title="<?php echo $this->__('Change Password') ?>"<?php if($this->getCustomer()->getChangePassword()==1): ?> checked="checked"<?php endif; ?> /> 
+		<span><?php echo $this->__('Change Password') ?></span>
+	</div>
+	<fieldset class="group-select" style="display:none">
+    	
+    <ul>
+        <li>
+            <div class="input-box">
+                <label for="current_password"><?php echo $this->__('Current Password') ?></label><span class="required">*</span><br/>
+                <input type="password" class="input-text" name="current_password" id="current_password" />
+            </div>
+        </li>
+        <li>
+            <div class="input-box">
+                <label for="password"><?php echo $this->__('New Password') ?></label><span class="required">*</span><br/>
+                <input type="password" class="validate-password input-text" name="password" id="password" />
+            </div>
+           <div class="input-box">
+                <label for="confirmation"><?php echo $this->__('Confirm New Password') ?></label><span class="required">*</span><br/>
+                <input type="password" class="validate-cpassword input-text" name="confirmation" id="confirmation" />
+            </div>
+        </li>
+    </ul>
+</fieldset>
+<div class="button-set">
+	<p class="required"><?php echo $this->__('* Required Fields') ?></p>
+	<button type="submit" class="form-button"><span><?php echo $this->__('Save') ?></span></button>&nbsp;
+	
+	<a href="<?php echo $this->getBackUrl() ?>" >&laquo; <?php echo $this->__('Back') ?></a>
+
+ </div> 
+</form>
+</div>
+<script type="text/javascript">
+//<![CDATA[
+    var dataForm = new VarienForm('form-validate', true);
+    function setPasswordForm(arg){
+        if(arg){
+            $('current_password').up(3).show();
+            $('current_password').addClassName('required-entry');
+            $('password').addClassName('required-entry');
+            $('confirmation').addClassName('required-entry');
+
+        }else{
+            $('current_password').up(3).hide();
+            $('current_password').removeClassName('required-entry');
+            $('password').removeClassName('required-entry');
+            $('confirmation').removeClassName('required-entry');
+        }
+    }
+    <?php if($this->getCustomer()->getChangePassword()): ?>
+        setPasswordForm(true);
+    <?php endif; ?>
+//]]>
+</script>

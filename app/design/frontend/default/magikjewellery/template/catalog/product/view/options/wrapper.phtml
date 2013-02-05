@@ -1,0 +1,17 @@
+<?php
+/**
+ * Theme: Magik Jewellery
+ * Author: MagentoMagik.com
+ * Version: 1.5
+ * URL: http://www.magentomagik.com/magento-themes/free-magento-themes/magik-jewellery-magento-theme/
+ * Source: http://www.magentomagik.com/
+ **/
+?>
+
+<fieldset class="product-options" id="product-options-wrapper">
+    <?php echo $this->getChildHtml('', true, true);?>
+    <?php if ($this->hasRequiredOptions()):?>
+        <p class="required"><?php echo $this->__('* Required Fields') ?></p>
+    <?php endif;?>
+    </fieldset>
+<script type="text/javascript">decorateGeneric($$('#product-options-wrapper dl'), ['last']);</script>

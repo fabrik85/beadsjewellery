@@ -1,0 +1,134 @@
+/* /css/breadcrumbs.css
+ * Breadcrumb styles
+ */
+
+.categoryTitle {
+	font-size: 30px;
+	padding: 0 15px 0 57px;
+	color: #597693;
+	text-decoration: none;
+	margin :0;
+	display: block;
+	position: relative;
+	float: left;
+	line-height: 38px;
+}
+.breadcrumbs .categoryTitle img { margin-top:5px; }
+
+.breadcrumbs {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #666;
+	padding:6px 5px 6px 5px;
+	background-color:#fff;		
+	padding-left:5px;	
+	border-bottom:1px solid #eaeaea;
+	margin-bottom:10px;	
+}
+
+.breadcrumbs a
+{
+	color: #666;
+	text-decoration: none;	
+}
+
+.breadcrumbs a:hover {
+	text-decoration: none;
+}
+.breadcrumbs span.last {
+	color: #666;
+	text-decoration: none;
+	line-height: 45px;
+	text-transform: lowercase;
+	text-decoration: none;
+}
+
+.formContent label {
+color:#666666;
+display:block;
+font-family:Arial,sans-serif;
+font-size:12px;
+font-weight:bold;
+margin:10px 0 5px 20px;
+}
+
+.shadedBackground {
+-moz-background-clip:border;
+-moz-background-inline-policy:continuous;
+-moz-background-origin:padding;
+background:none repeat scroll 0 0;
+line-height:normal;
+margin-bottom:6px;
+padding:6px;
+}
+div.shadedBackground li {
+list-style-image:url(../images/bullet_dash.gif);
+list-style-position:outside;
+list-style-type:disc;
+margin-left:15px;
+}
+
+.newslettercheck{
+padding-left:15px;
+font-size:12px;
+}
+
+.head {
+color:#0A263C;
+line-height:1.3em;
+margin-bottom:0.4em;
+}
+
+.data-table {
+margin:0 0 7px;
+width:100%;
+}
+
+table, tr, td, p {
+font-size:1em;
+}
+
+.data-table th {
+border:1px solid #DDDDDD;
+font-weight:bold;
+padding:5px;
+white-space:nowrap;
+text-align:left;
+}
+
+.data-table td {
+border:1px solid #DDDDDD;
+padding:5px;
+}
+
+.customer-account-index .col2-set {
+/*border:1px solid #D0D0D0;
+padding:15px;*/
+margin:0 0 10px;
+
+}
+
+.col2-set .col-1 {
+float:left;
+width:49%;
+}
+.inner-head {
+line-height:1.25em;
+text-align:left;
+}
+
+
+.col2-set {
+margin:0 0 0px;
+}
+
+address {
+font-style:normal;
+line-height:1.4em;
+}
+
+.paddingLeft{
+margin-left:20px;
+text-align:left;
+}
+

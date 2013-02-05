@@ -1,0 +1,45 @@
+<?php
+/**
+ * Theme: Magik Jewellery
+ * Author: MagentoMagik.com
+ * Version: 1.5
+ * URL: http://www.magentomagik.com/magento-themes/free-magento-themes/magik-jewellery-magento-theme/
+ * Source: http://www.magentomagik.com/
+ **/
+?>
+<div class="head">
+    <h3><?php echo $this->__('Catalog Advanced Search') ?></h3>
+</div>
+<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+<?php if($this->getResultCount()): ?>
+    <div class="advanced-search-found-amount">
+        <?php echo $this->helper('catalogsearch')
+            ->__('<strong>%d item(s)</strong> were found using the following search criteria', $this->getResultCount()); ?>
+    </div>
+<?php else: ?>
+    <div class="advanced-search-nothing-found"><?php echo $this->helper('catalogsearch')->__('No items were found using the following search criteria.');?> <a href="<?php echo $this->getFormUrl(); ?>"><?php echo $this->helper('catalogsearch')->__('Modify your search'); ?></a></div>
+<?php endif; ?>
+
+<?php $searchCriterias=$this->getSearchCriterias(); ?>
+<div class="advanced-search-summary-box">
+    <?php foreach (array('left', 'right') as $side): ?>
+        <?php if(@$searchCriterias[$side]): ?>
+            <ul>
+                <?php foreach($searchCriterias[$side] as $criteria): ?>
+                    <li><span><?php echo $this->htmlEscape($this->helper('catalog')->__($criteria['name'])); ?>:</span> <?php echo $this->htmlEscape($criteria['value']); ?></li>
+                <?php endforeach; ?>
+            </ul>
+        <?php endif; ?>
+    <?php endforeach; ?>
+
+    <?php if($this->getResultCount()): ?>
+        <div class="advanced-search-summary-tip">
+            <?php echo $this->helper('catalogsearch')->__("Don't see what you're looking for?"); ?>
+            <a href="<?php echo $this->getFormUrl(); ?>"><?php echo $this->helper('catalogsearch')->__('Modify your search'); ?></a>
+        </div>
+    <?php endif; ?>
+</div>
+<?php if($this->getResultCount()): ?>
+    <?php echo $this->getProductListHtml() ?>
+<?php endif; ?>
+<?php $this->getSearchCriterias(); ?>

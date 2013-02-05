@@ -1,0 +1,51 @@
+<?php
+/**
+ * Theme: Magik Jewellery
+ * Author: MagentoMagik.com
+ * Version: 1.5
+ * URL: http://www.magentomagik.com/magento-themes/free-magento-themes/magik-jewellery-magento-theme/
+ * Source: http://www.magentomagik.com/
+ **/
+
+/**
+USAGE:
+
+Simple:
+
+<?php echo $this->getLayout()->createBlock('customer/widget_name')
+   ->setObject($this->getAddress())
+   ->toHtml() ?>
+
+For checkout/onepage/shipping.phtml:
+
+<?php echo $this->getLayout()->createBlock('customer/widget_name')
+   ->setObject($this->getAddress())
+   ->setFieldIdFormat('shipping:%s')
+   ->setFieldNameFormat('shipping[%s]')
+   ->setFieldParams('onchange="shipping.setSameAsBilling(false);"')
+   ->toHtml() ?>
+*/
+?>
+<div>
+<div class="input-box name-firstname">    
+<label for="<?php echo $this->getFieldId('firstname')?>"><?php echo $this->__('First Name') ?><span class="required">*</span></label><br>
+<input type="text" id="<?php echo $this->getFieldId('firstname')?>"
+    name="<?php echo $this->getFieldName('firstname')?>"
+    value="<?php echo $this->htmlEscape($this->getObject()->getFirstname()) ?>"
+    title="<?php echo $this->__('First Name') ?>"
+    class="required-entry input-text"
+    <?php echo $this->getFieldParams() ?> />
+</div>   
+<div class="input-box name-lastname">	
+<label for="<?php echo $this->getFieldId('lastname')?>"> <?php echo $this->__('Last Name') ?><span class="required">*</span></label><br>
+<input type="text"
+id="<?php echo $this->getFieldId('lastname')?>"
+name="<?php echo $this->getFieldName('lastname')?>"
+value="<?php echo $this->htmlEscape($this->getObject()->getLastname()) ?>"
+title="<?php echo $this->__('Last Name') ?>"
+class="required-entry input-text"
+<?php echo $this->getFieldParams() ?> />
+</div>          
+</div>
+           
+           

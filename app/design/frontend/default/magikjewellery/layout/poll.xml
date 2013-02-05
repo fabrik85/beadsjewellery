@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Theme: Magik Jewellery
+ * Author: MagentoMagik.com
+ * Version: 1.5
+ * URL: http://www.magentomagik.com/magento-themes/free-magento-themes/magik-jewellery-magento-theme/
+ * Source: http://www.magentomagik.com/
+ **/
+-->
+<layout version="0.1.0">
+
+<!--
+Default layout, loads most of the pages
+-->
+
+    <default>
+
+        <!-- Mage_Poll -->
+        <reference name="left">
+            <block type="poll/activePoll" name="right.poll" before="catalog.compare.sidebar">
+                <action method="setPollTemplate"><template>poll/active.phtml</template><type>poll</type></action>
+                <action method="setPollTemplate"><template>poll/result.phtml</template><type>results</type></action>
+            </block>
+        </reference>
+
+    </default>
+
+<!--
+Customer account home dashboard layout
+-->
+
+    <customer_account_index>
+        <reference name="right">
+            <action method="unsetChild"><name>right.poll</name></action>
+        </reference>
+    </customer_account_index>
+
+</layout>

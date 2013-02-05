@@ -1,0 +1,75 @@
+<?php
+/**
+ * Theme: Magik Jewellery
+ * Author: MagentoMagik.com
+ * Version: 1.5
+ * URL: http://www.magentomagik.com/magento-themes/free-magento-themes/magik-jewellery-magento-theme/
+ * Source: http://www.magentomagik.com/
+ **/
+?>
+<?php
+/**
+ * Product list template
+ *
+ * @see Mage_Catalog_Block_Product_List
+ */
+?>
+<?php $_productCollection=$this->getLoadedProductCollection() ?>
+<?php if(!$_productCollection->count()): ?>
+<div class="note-msg">
+    <?php echo $this->__('There are no products matching the selection.') ?>
+</div>
+<?php else: ?>
+<?php echo $this->getToolbarHtml() ?>
+	<?php if($this->getMode()!='grid'): ?>
+	<?php $_iterator = 0; ?>
+	<div id="productslist">
+		<div class="listing-type-list catalog-listing">
+		<?php foreach ($_productCollection as $_product): ?>
+    		<div class="listing-item<?php if( ++$_iterator == sizeof($_productCollection) ): ?> last<?php endif; ?>">
+        	    <div class="product-image" style="width:300px;float:left;">
+            		<a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->htmlEscape($_product->getSmallImageLabel()) ?>">
+                		<img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(135, 135); ?>" width="135" height="135" alt="<?php echo $this->htmlEscape($this->getImageLabel($_product, 'small_image')) ?>" title="<?php echo $this->htmlEscape($this->getImageLabel($_product, 'small_image')) ?>" />
+            		</a>
+        		</div>
+		        <div class="product-shop" >
+            		<h5><a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->htmlEscape($_product->getName()) ?>"><?php echo $this->htmlEscape($_product->getName())?></a></h5>
+            	<?php if($_product->getRatingSummary()): ?>
+            	<?php echo $this->getReviewsSummaryHtml($_product) ?>
+            	<?php endif; ?>
+            	<?php echo $this->getPriceHtml($_product, true) ?>
+            	<div class="clear"></div>
+            	</div>
+    		</div>
+		<?php endforeach; ?>
+		</div>
+	</div>
+<?php else: ?>
+<div id="thumbnailsSpill">
+	
+		<?php $_collectionSize = $_productCollection->count() ?>
+    	<?php $i=0; foreach ($_productCollection as $_product): ?>
+	        <?php if($i++%3==0): ?>
+    	  
+        	<?php endif; ?>
+            	<div class="third thumbnailSpillLarge">
+					<a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->htmlEscape($this->getImageLabel($_product, 'small_image')) ?>">
+                    	<img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(135, 135); ?>" width="135" height="135" alt="<?php echo $this->htmlEscape($this->getImageLabel($_product, 'small_image')) ?>" title="<?php echo $this->htmlEscape($this->getImageLabel($_product, 'small_image')) ?>" />
+					<span class="title">
+						<span class="new"></span>
+						<?php echo $this->htmlEscape($_product->getName()) ?>
+					</span>
+					<span class="salePrice">
+						<?php echo $this->getPriceHtml($_product, true) ?>
+					</span>
+                    </a>
+            	</div>
+        	<?php if($i%3==0 || $i==$_collectionSize): ?>
+        	
+        	<?php endif; ?>
+    	<?php endforeach ?>
+    	<script type="text/javascript">decorateGeneric($$('.grid-row'), ['last', 'odd', 'even']);</script>
+	
+</div>
+<?php endif; ?>
+<?php endif; ?>

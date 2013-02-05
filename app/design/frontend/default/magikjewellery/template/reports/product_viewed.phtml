@@ -1,0 +1,24 @@
+<?php
+/**
+ * Theme: Magik Jewellery
+ * Author: MagentoMagik.com
+ * Version: 1.5
+ * URL: http://www.magentomagik.com/magento-themes/free-magento-themes/magik-jewellery-magento-theme/
+ * Source: http://www.magentomagik.com/
+ **/
+?>
+<?php if ($_products = $this->getRecentlyViewedProducts()): ?>
+<div class="box base-mini mini-product-view">
+<div class="borderClass" style="width: 190px;">
+    <div class="head">
+        <h4><span><?php echo $this->__('Recently Viewed Products') ?></span></h4>
+    </div>
+    <ol id="recently-viewed-items">
+    <?php foreach ($_products as $_item): ?>
+        <li><a href="<?php echo $_item->getProductUrl() ?>"><?php echo $this->htmlEscape($_item->getName()) ?></a></li>
+    <?php endforeach; ?>
+    </ol>
+    <script type="text/javascript">decorateList('recently-viewed-items')</script>
+</div>
+</div>
+<?php endif; ?>

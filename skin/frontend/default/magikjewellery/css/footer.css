@@ -1,0 +1,125 @@
+/* /css/footer.css */
+
+#footer
+{
+	color: #4d4d4d;
+	text-align: center;	
+	margin-top: 5px;
+	background-color:#000;	
+	font-size:11px;
+	overflow:hidden;	
+	width:961px;
+	
+}
+
+#footer_link{
+/*width:450px;*/
+float:left;
+padding-top:10px;
+}
+
+#footer_link ul {
+	color: #4d4d4d;
+	list-style: none;
+	text-indent: 0;
+	margin:0 0 10px;
+	height: 20px;
+	float:left;
+	padding-left:10px;
+ 	
+}
+
+#footer_link ul li
+{
+	display: inline;
+	margin: 0;
+	padding: 5px;
+}
+
+#footer_link ul li a,
+#footer_link ul li a:link,
+#footer_link ul li a:active,
+#footer_link ul li a:visited
+{
+	color: #999;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	text-decoration: none;
+	padding: 0 20px 0 0;
+	margin: 0;
+	height: 20px;
+	line-height: 20px;
+	border-right: 1px solid #666;
+	text-decoration:underline;
+	
+}
+
+#footer_link ul li a:hover
+{
+	text-decoration: underline;
+}
+
+#footer_link ul li a.last,
+#footer_link ul li a.last:link,
+#footer_link ul li a.last:active,
+#footer_link ul li a.last:visited
+{
+	border-right: 0;
+	padding-right:0;
+}
+
+#footer_link .links
+{
+	text-align: center;
+	height: 36px;
+	font-family: Verdana;
+	font-weight: bold;
+	font-size: 11px;
+	line-height: 36px;
+}
+
+#footer_link .links .link
+{
+	display: inline;
+	margin: 0 30px 0 0;
+	color: #4d4d4d;
+}
+
+#footer_link .links .link a
+{
+	color: #7298BD;
+	text-decoration: none;
+}
+
+#footer_link .links .link a:hover
+{
+	text-decoration: underline;
+}
+
+#footer_link .footerLogo img
+{
+	margin-bottom: -5px;
+}
+#footer_link .col-1 {
+float:left;
+width:250px;
+padding-left:10px;
+}
+#footer_link .col-2 {
+float:right;
+width:600px;
+text-align:right;
+padding-right:10px;
+}
+.store-switcher{
+float:left;
+padding-left:10px;
+clear:left;
+
+}
+.copyright{
+text-align:left;
+color:#999999;
+margin-left:16px;
+}
+

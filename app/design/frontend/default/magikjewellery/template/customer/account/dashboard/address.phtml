@@ -1,0 +1,29 @@
+<?php
+/**
+ * Theme: Magik Jewellery
+ * Author: MagentoMagik.com
+ * Version: 1.5
+ * URL: http://www.magentomagik.com/magento-themes/free-magento-themes/magik-jewellery-magento-theme/
+ * Source: http://www.magentomagik.com/
+ **/
+?>
+<div class="inner-head">
+    <h3><?php echo $this->__('Address Book') ?></h3>
+    <a href="<?php echo $this->getAddressBookUrl() ?>"><?php echo $this->__('Manage Addresses') ?></a>
+</div>
+<div class="col2-set">
+    <div class="col-1">
+        <h6><?php echo $this->__('Primary Billing Address') ?></h6>
+        <address>
+            <?php echo $this->getPrimaryBillingAddressHtml() ?><br />
+            <a href="<?php echo $this->getPrimaryBillingAddressEditUrl() ?>"><?php echo $this->__('Edit Address') ?></a>
+        </address>
+    </div>
+    <div class="col-2">
+        <h6><?php echo $this->__('Primary Shipping Address') ?></h6>
+        <address>
+            <?php echo $this->getPrimaryShippingAddressHtml() ?><br />
+            <a href="<?php echo $this->getPrimaryShippingAddressEditUrl() ?>"><?php echo $this->__('Edit Address') ?></a>
+        </address>
+    </div>
+</div><br />

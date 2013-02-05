@@ -1,0 +1,23 @@
+<?php
+/**
+ * Theme: Magik Jewellery
+ * Author: MagentoMagik.com
+ * Version: 1.5
+ * URL: http://www.magentomagik.com/magento-themes/free-magento-themes/magik-jewellery-magento-theme/
+ * Source: http://www.magentomagik.com/
+ **/
+?>
+<?php
+/**
+ * Template for filter items block
+ *
+ * @see Mage_Catalog_Block_Layer_Filter
+ */
+?>
+
+<div style="padding-left: 5px; text-decoration: underline;"><?php foreach ($this->getItems() as $_item): ?>
+
+<a href="<?php echo $_item->getUrl() ?>"><?php echo $_item->getLabel() ?></a>
+(<?php echo $_item->getCount() ?>)<br />
+
+<?php endforeach ?></div>

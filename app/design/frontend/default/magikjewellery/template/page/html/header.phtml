@@ -1,0 +1,24 @@
+<?php
+/**
+ * Theme: Magik Jewellery
+ * Author: MagentoMagik.com
+ * Version: 1.5
+ * URL: http://www.magentomagik.com/magento-themes/free-magento-themes/magik-jewellery-magento-theme/
+ * Source: http://www.magentomagik.com/
+ **/
+?>
+<div id="header">
+	<div id="logo">
+		<!-- <a href="<?php //echo $this->getUrl('') ?>"><img src="<?php //echo $this->getSkinUrl('images/logo.png') ?>" alt="<?php //echo $this->getLogoAlt() ?>" /></a> -->
+		<div style="font-size:34px; color:#000000;">Beads <span style="color:#e56991; font-weight:bold;">Jewellery</span></div>
+	</div>
+	<div class="siteLinks">
+		<div class="headerTop">						
+			<?php echo $this->getChildHtml('headlinks') ?>			
+		</div>
+		<div class="headerBottom">						
+			<?php echo $this->getChildHtml('topSearch') ?>			
+		</div>
+	</div>
+</div>
+<?php echo $this->getChildHtml('topMenu') ?>

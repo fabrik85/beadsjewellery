@@ -1,0 +1,35 @@
+<?php
+/**
+ * Theme: Magik Jewellery
+ * Author: MagentoMagik.com
+ * Version: 1.5
+ * URL: http://www.magentomagik.com/magento-themes/free-magento-themes/magik-jewellery-magento-theme/
+ * Source: http://www.magentomagik.com/
+ **/
+?>
+    <div class="page-head">
+       <h3><?php echo $this->__('Send confirmation link') ?></h3>
+    </div>
+    <?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+    <form action="" method="post" id="form-validate">
+        <fieldset>
+                <legend><?php echo $this->__('Retrieve your confirmation link here') ?></legend>
+        <p><?php echo $this->__('Please enter your email below and we\'ll send you confirmation link for it.') ?></p>
+        <ul class="form-list">
+            <li>
+                <div class="input-box"><label for="email_address"><?php echo $this->__('Email Address') ?> <span class="required">*</span></label><br/>
+                <input name="email" type="text" id="email_address" class="required-entry validate-email input-text" value="<?php echo $this->htmlEscape($this->getEmail()) ?>" /></div></li>
+        </ul>
+    <div class="button-set">
+        <p class="required"><?php echo $this->__('* Required Fields') ?></p>
+        <a href="<?php echo $this->helper('customer')->getLoginUrl() ?>" class="left">&laquo; <?php echo $this->__('Back to Login') ?></a>
+        <button type="submit" class="form-button right"><span><?php echo $this->__('Submit') ?></span></button>
+    </div>
+        </fieldset>
+    </form>
+    <script type="text/javascript">
+    //<![CDATA[
+        var dataForm = new VarienForm('form-validate', true);
+    //]]>
+    </script>
+    

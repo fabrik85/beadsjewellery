@@ -1,0 +1,25 @@
+<?php
+/**
+ * Theme: Magik Jewellery
+ * Author: MagentoMagik.com
+ * Version: 1.5
+ * URL: http://www.magentomagik.com/magento-themes/free-magento-themes/magik-jewellery-magento-theme/
+ * Source: http://www.magentomagik.com/
+ **/
+?>
+    <fieldset class="newsletter">
+        <h2 class="accent"><?php echo $this->__('Newsletter') ?></h2>
+        <form action="<?php echo $this->getUrl('newsletter/subscriber/new') ?>" method="post" id="newsletter-validate">
+                <fieldset>
+                        <legend><?php echo $this->__('Newsletter') ?></legend>
+                        <label for="newsletter"><?php echo $this->__('Sign up for our newsletter') ?>:</label>
+                        <input name="email" id="newsletter" type="text" class="required-entry validate-email input-text" />
+                        <input type="submit" value="<?php echo $this->__('Submit') ?>" alt="<?php echo $this->__('Subscribe') ?>" class="input-button" />
+                </fieldset>
+        </form>
+        <script type="text/javascript">
+        <!--
+            var newsletterSubscriberForm = new VarienForm('newsletter-validate');
+        //-->
+        </script>
+    </fieldset>

@@ -1,0 +1,14 @@
+<?php
+/**
+ * Theme: Magik Jewellery
+ * Author: MagentoMagik.com
+ * Version: 1.5
+ * URL: http://www.magentomagik.com/magento-themes/free-magento-themes/magik-jewellery-magento-theme/
+ * Source: http://www.magentomagik.com/
+ **/
+?>
+    <?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+    <?php echo $this->__('Your account balance is: %s', $customer->getStoreBalance()) ?> 
+    <div class="buttons-container">
+            <a href="<?php echo $this->getUrl('customer/account') ?>" class="float-left">&laquo; <?php echo $this->__('Back') ?></a>
+    </div>

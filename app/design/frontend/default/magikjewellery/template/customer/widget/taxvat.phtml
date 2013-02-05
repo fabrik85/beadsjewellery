@@ -1,0 +1,23 @@
+<?php
+/**
+ * Theme: Magik Jewellery
+ * Author: MagentoMagik.com
+ * Version: 1.5
+ * URL: http://www.magentomagik.com/magento-themes/free-magento-themes/magik-jewellery-magento-theme/
+ * Source: http://www.magentomagik.com/
+ **/
+?>
+
+<div class="input-box taxvat">
+    <label for="<?php echo $this->getFieldId('taxvat')?>">
+        <?php echo $this->__('Tax/VAT number') ?>
+        <?php if ($this->isRequired()):?><span class="required">*</span><?php endif ?>
+    </label>
+    <br />
+    <input type="text"
+        id="<?php echo $this->getFieldId('taxvat')?>"
+        name="<?php echo $this->getFieldName('taxvat')?>"
+        value="<?php echo $this->htmlEscape($this->getTaxvat()) ?>"
+        class="<?php if ($this->isRequired()):?>required-entry<?php endif?> input-text"
+        <?php echo $this->getFieldParams() ?> />
+</div>

@@ -1,0 +1,24 @@
+<?php
+/**
+ * Theme: Beads Jewellery
+ * Author: beadsjewellery.co.uk
+ * Version: 1.5
+ * URL: http://www.beadsjewellery.co.uk
+ * Source: http://www.beadsjewellery.co.uk/
+ **/
+?>
+<?php 
+/**
+ * Top menu for store
+ *
+ * @see Mage_Catalog_Block_Navigation
+ */
+?>
+
+	<ul id="nav">
+		<li class="rollover"><a href="<?php echo $this->getUrl();?>" title="home"><?php echo "Home"; ?></a> </li>
+        <?php foreach ($this->getStoreCategories() as $_category): ?>
+            <?php echo $this->drawItem($_category) ?>
+        <?php endforeach ?>
+	</ul>
+    <?php echo $this->getChildHtml('topLeftLinks') ?>

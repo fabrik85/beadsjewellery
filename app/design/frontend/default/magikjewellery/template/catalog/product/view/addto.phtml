@@ -1,0 +1,20 @@
+<?php
+/**
+ * Theme: Magik Jewellery
+ * Author: MagentoMagik.com
+ * Version: 1.5
+ * URL: http://www.magentomagik.com/magento-themes/free-magento-themes/magik-jewellery-magento-theme/
+ * Source: http://www.magentomagik.com/
+ **/
+?>
+
+<?php $_product = $this->getProduct() ?>
+
+<ul class="add-to-box">
+<?php if ($this->helper('wishlist')->isAllow()) : ?>
+    <li style="display:inline;width:200px;"><a href="<?php echo $this->helper('wishlist')->getAddUrl($_product) ?>"><?php echo $this->__('Add to Wishlist') ?></a></li>
+<?php endif; ?>
+<?php if($_compareUrl=$this->helper('catalog/product_compare')->getAddUrl($_product) ): ?>
+    <li style="display:inline;width:200px;"><span class="pipe">|</span> <a href="<?php echo $_compareUrl ?>"><?php echo $this->__('Add to Compare') ?></a></li>
+<?php endif; ?>
+</ul>

@@ -1,0 +1,11 @@
+<?php $_links = $this->getLinks(); ?>
+<?php if(count($_links)>0): ?>
+       <?php foreach($_links as $_link): ?>
+       <?php if($_link->getIsFirst()){ ?> <li class="signIn"> <?php }else{?>
+       <li class="secondRow">
+       <?php } ?>
+       	<a href="<?php echo $_link->getUrl() ?>" title="<?php echo $_link->getTitle() ?>" <?php echo $_link->getAParams() ?>><?php echo $_link->getLabel() ?></a></li> 
+       	
+       	<?php echo $_link->getAfterText() ?>
+       <?php endforeach; ?>
+<?php endif; ?>

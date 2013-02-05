@@ -1,0 +1,115 @@
+<?php
+/**
+ * Theme: Magik Jewellery
+ * Author: MagentoMagik.com
+ * Version: 1.5
+ * URL: http://www.magentomagik.com/magento-themes/free-magento-themes/magik-jewellery-magento-theme/
+ * Source: http://www.magentomagik.com/
+ **/
+?>
+<?php
+/**
+ * Shopping cart template
+ *
+ * @see Mage_Checkout_Block_Cart
+ */
+?>
+<div id="divCheckoutInfo" class="threeNinety checkoutInfo">
+<?php if(!$this->hasError()): ?>
+   <?php echo $this->getChildHtml('top_methods') ?>
+   <div class="clear"> </div>
+   <?php echo $this->getChildHtml('totals'); ?>
+   <?php endif; ?>
+</div>
+<div class="clear"></div>
+<div id="divBasket">
+<p class="infoText">
+   You have added the following items to your shopping cart:
+</p>
+<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+<form action="<?php echo $this->getUrl('checkout/cart/updatePost') ?>" method="post">
+<table cellspacing="0" border="0" id="shopping-cart-table" class="lineItems iota">
+<colgroup>
+<col span="1" width="160"/>
+<col span="1" width="110" />
+<col />
+<?php if ($this->helper('wishlist')->isAllowInCart()) : ?>
+    <col span="1" width="180" />
+<?php endif ?>
+<?php if ($this->helper('tax')->displayCartPriceExclTax() || $this->helper('tax')->displayCartBothPrices()): ?>
+    <col width="100" />
+<?php endif; ?>
+<?php if ($this->helper('tax')->displayCartPriceInclTax() || $this->helper('tax')->displayCartBothPrices()): ?>
+    <col width="100" />
+<?php endif; ?>
+    <col width="100" />
+<?php if ($this->helper('tax')->displayCartPriceExclTax() || $this->helper('tax')->displayCartBothPrices()): ?>
+    <col width="100" />
+<?php endif; ?>
+<?php if ($this->helper('tax')->displayCartPriceInclTax() || $this->helper('tax')->displayCartBothPrices()): ?>
+    <col width="100" />
+<?php endif; ?>
+</colgroup> 
+<?php $mergedCells = ($this->helper('tax')->displayCartBothPrices() ? 2 : 1); ?>
+<tbody>
+    <tr class="itemHeaderRow">
+        <th><?php echo $this->__('Remove') ?></th>
+         <th></th>
+        <th><?php echo $this->__('Product Name') ?></th>
+        <?php if ($this->helper('wishlist')->isAllowInCart()) : ?>
+        <th><?php echo $this->__('Move to Wishlist') ?></th>
+        <?php endif ?>
+        <th><?php echo $this->__('Unit Price') ?></th>
+        <th><?php echo $this->__('Qty') ?></th>
+        <th><?php echo $this->__('Subtotal') ?></th>
+    </tr>
+    <?php if ($this->helper('tax')->displayCartBothPrices()): ?>
+    <tr>
+        <th class="a-right"><?php echo $this->helper('tax')->getIncExcTaxLabel(false) ?></th>
+        <th class="a-right"><?php echo $this->helper('tax')->getIncExcTaxLabel(true) ?></th>
+        <th class="a-right"><?php echo $this->helper('tax')->getIncExcTaxLabel(false) ?></th>
+        <th class="a-right"><?php echo $this->helper('tax')->getIncExcTaxLabel(true) ?></th>
+    </tr>
+    <?php endif; ?>
+	<tr class="itemRow">
+    <?php foreach($this->getItems() as $_item): ?>
+        <?php echo $this->getItemHtml($_item) ?>
+    <?php endforeach ?>
+    </tr>
+<script type="text/javascript">decorateTable('shopping-cart-table')</script>
+</form>
+<tr id="trPromoEntry" class="promotionCode">        	
+<?php echo $this->getChildHtml('crosssell') ?>
+<td colspan="7">    
+	<?php echo $this->getChildHtml('coupon') ?>
+</td>
+</tr>
+<tr id="trPromoEntry" class="promotionCode">        	
+	<td colspan="7"> 
+		<?php if (!$this->getIsVirtual()): echo $this->getChildHtml('shipping'); endif; ?>
+	</td>
+</tr>
+<div class="clear"></div>
+</tbody>
+<tfoot>
+        <tr>
+            <td colspan="100" class="a-right" style="padding-top:10px;">
+                <?php if($this->getContinueShoppingUrl()): ?>
+                <button class="form-button-alt continue-shopping" onclick="setLocation('<?php //echo $this->getContinueShoppingUrl() ?>')" type="button"><span><?php echo $this->__('Continue Shopping') ?></span></button>
+               <?php endif; ?>
+                <<button class="form-button-alt" type="submit"><span><?php echo $this->__('Update Cart') ?></span></button>
+               
+                <?php if(!$this->hasError()): ?>
+    		        
+    			 <?php endif; ?>
+    			 
+    			 <?php if(!$this->hasError()): ?>
+				 <?php echo $this->getChildHtml('methods') ?>				
+				<?php endif; ?>
+    			
+</div>
+               
+            </td>
+        </tr>
+    </tfoot>
+</table>

@@ -1,0 +1,17 @@
+<?php
+/**
+ * Theme: Magik Jewellery
+ * Author: MagentoMagik.com
+ * Version: 1.5
+ * URL: http://www.magentomagik.com/magento-themes/free-magento-themes/magik-jewellery-magento-theme/
+ * Source: http://www.magentomagik.com/
+ **/
+?>
+<?php if ($this->getTotals()): ?>
+<tfoot>
+    <?php $_colspan = $this->helper('tax')->displayCartBothPrices() ? 5 : 3; ?>
+
+    <?php echo $this->renderTotals(null, $_colspan); ?>
+    <?php echo $this->renderTotals('footer', $_colspan); ?>
+</tfoot>
+<?php endif; ?>

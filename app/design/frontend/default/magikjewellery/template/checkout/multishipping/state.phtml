@@ -1,0 +1,23 @@
+<?php
+/**
+ * Theme: Magik Jewellery
+ * Author: MagentoMagik.com
+ * Version: 1.5
+ * URL: http://www.magentomagik.com/magento-themes/free-magento-themes/magik-jewellery-magento-theme/
+ * Source: http://www.magentomagik.com/
+ **/
+?>
+<?php 
+/**
+ * Mustishipping state
+ * 
+ * @see Mage_Checkout_Block_Multishipping_State
+ */
+?>
+<table class="checkout-progress">
+<tr>
+<?php foreach ($this->getSteps() as $_step): ?>
+    <td<?php if($_step->getIsActive()): ?> class="active"<?php endif ?>><span><?php echo $_step->getLabel() ?></span></td>
+<?php endforeach; ?>
+</tr>
+</table>

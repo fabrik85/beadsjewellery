@@ -1,0 +1,65 @@
+<?php
+/**
+ * Theme: Magik Jewellery
+ * Author: MagentoMagik.com
+ * Version: 1.5
+ * URL: http://www.magentomagik.com/magento-themes/free-magento-themes/magik-jewellery-magento-theme/
+ * Source: http://www.magentomagik.com/
+ **/
+?>
+<?php
+/**
+ * Last order sidebar
+ *
+ * @see Mage_Sale_Block_Reorder_Sidebar
+ */
+?>
+<?php if($_order = $this->getLastOrder()): ?>
+<div class="box base-mini mini-compare-products">
+<div class="borderClass" style="width:190px;">
+<form method="post" action="<?php echo $this->getUrl('checkout/cart/addgroup') ?>" id="reorder-validate-detail">
+    <div class="head">
+        <h3 style="display: block; float: left;"><?php echo $this->__('My Orders') ?>&nbsp;&nbsp;-&nbsp;&nbsp;</h3>
+        <a href="<?php echo $this->getUrl('customer/account') ?>"><?php echo $this->__('View All') ?></a><br /><br />
+        <h5><?php echo $this->__('Last ordered items') ?></h5>
+    </div>
+    <ol id="cart-sidebar-reorder" class="options-list">
+        <?php $_showAddButtonFlag = false ?>
+        <?php foreach ($_order->getItemsRandomCollection(5) as $_item): ?>
+            <?php if ($_item->getProduct() && is_null($_item->getParentItem())): ?>
+                <li>
+                    <div class="product-checkbox">
+                        <?php if ($_item->getProduct()->getStockItem()->getIsInStock()): ?>
+                            <?php $_showAddButtonFlag = true ?>
+                            <input type="checkbox" name="order_items[]" id="reorder-item-<?php echo $_item->getId() ?>" value="<?php echo $_item->getId() ?>" class="validate-one-required-by-name" />
+                            <script type="text/javascript">
+                                $('reorder-item-<?php echo $_item->getId() ?>').advaiceContainer = 'cart-sidebar-reorder-advice-container';
+                            </script>
+                        <?php endif; ?>
+                    </div>
+                    <div class="product-names">
+                        <a href="<?php echo $_item->getProduct()->getProductUrl() ?>"><?php echo $this->htmlEscape($_item->getName()) ?></a>
+                    </div>
+                </li>
+            <?php endif; ?>
+        <?php endforeach; ?>
+    </ol>
+    <script type="text/javascript">decorateList('cart-sidebar-reorder')</script>
+    <div id="cart-sidebar-reorder-advice-container"></div>
+
+    <?php if ($_showAddButtonFlag): ?>
+        <div class="actions">
+        	<input type="image" src="<?php echo $this->getSkinUrl('images/addtocart.gif');?>">
+           <br />
+        </div>
+    <?php endif; ?>
+</form>
+</div>
+<?php echo $this->getPagerHtml(); ?>
+<script type="text/javascript">
+//<![CDATA[
+    var reorderFormDetail = new VarienForm('reorder-validate-detail');
+//]]>
+</script>
+<?php endif ?>
+</div>

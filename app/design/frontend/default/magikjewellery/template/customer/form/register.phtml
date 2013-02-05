@@ -1,0 +1,85 @@
+<?php
+/**
+ * Theme: Magik Jewellery
+ * Author: MagentoMagik.com
+ * Version: 1.5
+ * URL: http://www.magentomagik.com/magento-themes/free-magento-themes/magik-jewellery-magento-theme/
+ * Source: http://www.magentomagik.com/
+ **/
+?>
+<?php
+/**
+ * Create account form template
+ *
+ * @see Mage_Customer_Block_Form_Register
+ */
+?>
+<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+<form action="<?php echo $this->getPostActionUrl() ?>" method="post" id="form-validate">
+	<div class="page-head">
+	<h2><?php echo $this->__('Create An Account') ?></h2>
+	</div>
+	<div>
+		<p id="IntroText">Take a few minutes to create an account now. Your information will be on file to save you time, next time.</p>
+		<div id="accountCreate">
+			<fieldset class="group-select wide">
+    			<input type="hidden" name="success_url" value="<?php echo $this->getSuccessUrl() ?>" />
+    			<input type="hidden" name="error_url" value="<?php echo $this->getErrorUrl() ?>" />
+    			<ul>
+    			<li><?php echo $this->getLayout()->createBlock('customer/widget_name')->setObject($this->getFormData())->toHtml() ?></li>    			
+    			<li>
+    				<div class="input-box">    			
+    				<label for="email_address"><?php echo $this->__('Email Address') ?> </label><span class="required">*</span><br/>
+    				<input type="text" name="email" id="email_address" value="<?php echo $this->htmlEscape($this->getFormData()->getEmail()) ?>" title="<?php echo $this->__('Email Address') ?>" class="validate-email required-entry input-text" />
+    				</div>
+    			</li>
+    			<li>
+    				<?php if ($this->isNewsletterEnabled()): ?>       			
+	            	<div class="">
+	                <input type="checkbox" name="is_subscribed" title="<?php echo $this->__('Sign Up for Newsletter') ?>" value="1" id="is_subscribed" <?php if($this->getFormData()->getIsSubscribed()): ?> checked="checked"<?php endif ?> />
+	            	<span><?php echo $this->__('Sign Up for Newsletter') ?></span>	
+	            	</div>
+	            	<?php endif ?>
+					<?php $_dob = $this->getLayout()->createBlock('customer/widget_dob') ?>
+					<?php if ($_dob->isEnabled()): ?>
+	            		<?php echo $_dob->setDate($this->getFormData()->getDob())->toHtml() ?>
+					<?php endif ?>
+					<?php $_taxvat = $this->getLayout()->createBlock('customer/widget_taxvat') ?>
+					<?php if ($_taxvat->isEnabled()): ?>
+	            		<?php echo $_taxvat->setTaxvat($this->getFormData()->getTaxvat())->toHtml() ?>
+					<?php endif ?>
+    			</li>
+    			</ul>       			
+        	</fieldset>
+    		<fieldset class="group-select wide">
+    		<h4 class="legend">Login Information</h4>
+    		<ul>
+    		<li>
+				<div class="input-box" >
+					<label for="password"><?php echo $this->__('Password') ?></label><span class="required">*</span>
+					<input type="password" name="password" id="password" title="<?php echo $this->__('Password') ?>" class="required-entry validate-password input-text" />
+				</div>
+				<div class="input-box">
+					<label for="confirmation"><?php echo $this->__('Confirm Password') ?></label><span class="required">*</span>
+					<input type="password" name="confirmation" title="<?php echo $this->__('Confirm Password') ?>" id="confirmation" class="required-entry validate-cpassword input-text" />
+				</div>
+    		</li>
+    		</ul>
+    		</fieldset>
+    <div class="button-set">
+       <p class="required"><?php echo $this->__('* Required Fields') ?></p>
+        <button class="form-button" type="submit"><span><?php echo $this->__('Submit') ?></span></button>&nbsp;
+      
+        <a href="<?php echo $this->getBackUrl() ?>">&laquo; <?php echo $this->__('Back') ?></a>       
+    </div>
+    <br/>
+    </div></div>
+</form>
+<script type="text/javascript">
+//<![CDATA[
+    var dataForm = new VarienForm('form-validate', true);
+    <?php if($this->getShowAddressFields()): ?>
+    new RegionUpdater('country', 'region', 'region_id', <?php echo $this->helper('directory')->getRegionJson() ?>);
+    <?php endif; ?>
+//]]>
+</script>

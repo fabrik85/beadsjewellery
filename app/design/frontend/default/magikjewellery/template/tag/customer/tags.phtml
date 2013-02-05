@@ -1,0 +1,33 @@
+<?php
+/**
+ * Theme: Magik Jewellery
+ * Author: MagentoMagik.com
+ * Version: 1.5
+ * URL: http://www.magentomagik.com/magento-themes/free-magento-themes/magik-jewellery-magento-theme/
+ * Source: http://www.magentomagik.com/
+ **/
+?>
+<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+
+<div class="page-head">
+    <h2><?php echo $this->__('My Tags') ?></h2>
+</div>
+<div class="">
+<?php if($this->getTags()): ?>
+    <p><?php echo $this->__('Click on a tag to view your corresponding products.') ?></p>
+    <div class="box base-mini mini-product-tags">
+        <div class="content">
+            <ul>
+                <?php foreach ($this->getTags() as $_tag): ?>
+                    <li><a href="<?php echo $this->getUrl('tag/customer/view', array('tagId' => $_tag->getTagId())) ?>" style="font-size:<?php echo $_tag->getRatio()*70+75 ?>%;"><?php echo $this->htmlEscape($_tag->getName()) ?></a></li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+    </div>
+<?php else: ?>
+    <p><?php echo $this->__('You have not tagged any products yet.') ?></p>
+<?php endif; ?>
+</div>
+<div class="button-set">
+    <a href="<?php echo $this->getBackUrl() ?>" class="left">&laquo; <?php echo $this->__('Back') ?></a>
+</div>

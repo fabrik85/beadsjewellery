@@ -1,0 +1,35 @@
+<?php
+/**
+ * Theme: Magik Jewellery
+ * Author: MagentoMagik.com
+ * Version: 1.5
+ * URL: http://www.magentomagik.com/magento-themes/free-magento-themes/magik-jewellery-magento-theme/
+ * Source: http://www.magentomagik.com/
+ **/
+?>
+<div id="checkout-review-load" class="default-box">
+    <?php echo $this->getChildHtml('info') ?>
+</div>
+
+<?php echo $this->getChildHtml('agreements') ?>
+<div class="content button-set">
+    <p class="left"><?php echo $this->__('Forgot an Item?') ?> <a href="<?php echo $this->getUrl('checkout/cart') ?>"><?php echo $this->__('Edit Your Cart') ?></a></p>
+    <p>
+        
+
+        <span id="review-buttons-container" class="a-center">
+           
+            <button type="button" class="form-button right" onclick="review.save();"><span><?php echo $this->__('Place Order') ?></span></button>
+        </span>
+        
+        <span id="review-please-wait" style="display:none;" class="opc-please-wait">
+            <img src="<?php echo $this->getSkinUrl('images/opc-ajax-loader.gif') ?>" class="v-middle" alt="" /> &nbsp; <?php echo $this->__('Submitting order information...') ?> &nbsp;
+        </span>
+        
+    </p>
+</div>
+<script type="text/javascript">
+//<![CDATA[
+    var review = new Review('<?php echo $this->getUrl('checkout/onepage/saveOrder') ?>', '<?php echo $this->getUrl('checkout/onepage/success') ?>', $('checkout-agreements'));
+//]]>
+</script>

@@ -1,0 +1,21 @@
+<?php
+/**
+ * Theme: Magik Jewellery
+ * Author: MagentoMagik.com
+ * Version: 1.5
+ * URL: http://www.magentomagik.com/magento-themes/free-magento-themes/magik-jewellery-magento-theme/
+ * Source: http://www.magentomagik.com/
+ **/
+?>
+<form id="search_mini_form" action="<?php echo $this->helper('catalogSearch')->getResultUrl() ?>" method="get">
+ 	
+            <input  type="text" class="searchbox" name="<?php echo $this->helper('catalogSearch')->getQueryParamName() ?>" value="<?php echo $this->helper('catalogSearch')->getEscapedQueryText() ?>" />
+            <input type="image" src="<?php echo $this->getSkinUrl('images/search_btn.png') ?>" alt="<?php echo $this->__('Search') ?>" align="absmiddle"/>               
+            <div id="search_autocomplete" class="search-autocomplete"></div>
+            <script type="text/javascript">
+            //<![CDATA[
+                var searchForm = new Varien.searchForm('search_mini_form', 'search', '<?php echo $this->__('Search Here') ?>');
+                searchForm.initAutocomplete('<?php echo $this->helper('catalogSearch')->getSuggestUrl() ?>', 'search_autocomplete');
+            //]]>
+            </script>
+</form>

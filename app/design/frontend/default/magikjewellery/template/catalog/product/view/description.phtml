@@ -1,0 +1,18 @@
+<?php
+/**
+ * Theme: Magik Jewellery
+ * Author: MagentoMagik.com
+ * Version: 1.5
+ * URL: http://www.magentomagik.com/magento-themes/free-magento-themes/magik-jewellery-magento-theme/
+ * Source: http://www.magentomagik.com/
+ **/
+
+/**
+ * Product description template
+ *
+ * @see Mage_Catalog_Block_Product_View_Description
+ */
+?>
+<div class="product-specs">
+<?php echo $this->helper('catalog/output')->productAttribute($this->getProduct(), nl2br($this->getProduct()->getDescription()), 'description') ?>
+</div>

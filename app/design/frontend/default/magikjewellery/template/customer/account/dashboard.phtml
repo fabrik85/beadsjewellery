@@ -1,0 +1,25 @@
+<?php
+/**
+ * Theme: Magik Jewellery
+ * Author: MagentoMagik.com
+ * Version: 1.5
+ * URL: http://www.magentomagik.com/magento-themes/free-magento-themes/magik-jewellery-magento-theme/
+ * Source: http://www.magentomagik.com/
+ **/
+?>
+<div class="page-head">
+    <h2><?php echo $this->__('My Dashboard') ?></h2>
+</div>
+<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+<?php echo $this->getChildHtml('hello') ?>
+<?php echo $this->getChildHtml('top') ?>
+<div class="account-box ad-account-info">
+    <div class="head">
+        <h4><?php echo $this->__('Account Information') ?></h4>
+    </div>
+    <?php echo $this->getChildHtml('info') ?>
+    <?php echo $this->getChildHtml('address') ?>
+</div>
+
+<?php echo $this->getChildHtml('info1') ?>
+<?php echo $this->getChildHtml('info2') ?>

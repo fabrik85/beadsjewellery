@@ -1,0 +1,60 @@
+
+<?php
+/**
+ * Theme: Magik Jewellery
+ * Author: MagentoMagik.com
+ * Version: 1.5
+ * URL: http://www.magentomagik.com/magento-themes/free-magento-themes/magik-jewellery-magento-theme/
+ * Source: http://www.magentomagik.com/
+ **/
+?>
+<?php
+/**
+ * Customer login form template
+ *
+ * @see Mage_Customer_Block_Form_Login
+ */
+?>
+
+<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+<form action="<?php echo $this->getPostActionUrl() ?>" method="post" id="login-form">
+	<div class="twoForty alpha">		
+		<h1><?php echo $this->__('I Have an Account') ?></h1>
+		<p>If you have saved your information by registering here, access it by logging in below. </p> 
+		
+        	<div class="input-box">
+				<label><?php echo $this->__('Your Email Address') ?></label> <span class="required">*</span>
+				<input class="text formHalf email" name="login[username]" value="<?php echo $this->htmlEscape($this->getUsername()) ?>" title="<?php echo $this->__('Email Address') ?>" id="email" type="text" class="input-text required-entry" maxlength="50"/>
+			</div>
+			<div class="input-box" style="margin-top:5px;">
+				<label><?php echo $this->__('Your Password') ?></label><span class="required">*</span>
+				<input class="text formHalf password" name="login[password]" type="password" class="input-text required-entry validate-password" id="pass" maxlength="16" />
+			</div>
+    		<div class="button-set" style="margin-top:5px;">
+    			
+    			<button class="form-button" type="submit" name="send" id="send2"><span><?php echo $this->__('Login') ?></span></button>&nbsp;    			 
+    			<a class="thickbox forgotPassword" href="<?php echo $this->getForgotPasswordUrl() ?>"><?php echo $this->__('Forgot Your Password?') ?></a>
+    		</div>    		
+    		
+ 		
+ 	</div>
+	<div class="threeHundred borderLeft">
+    	<h1>Dont have an account?</h1>
+    	<p>Take the first step to create an account.</p>
+    	<div class="shadedBackground">
+	    	<span>Benefits of an Account:</span>
+	    	<ul>
+		        <li>Easier Order Tracking.</li>
+		        <li>Expedite your checkout process.</li>
+		        <li>Create and maintain your own address book.</li>
+		        <li>Sign up for gift reminders.</li>
+		        <li>Request email announcements.</li>
+	     	</ul>
+    	</div>
+    	<div class="clear"></div>
+		<button type="button" class="form-button" onclick="window.location='<?php echo $this->getCreateAccountUrl() ?>';" type="button"><span><?php echo $this->__('Create an Account') ?></span></button>
+ 	</div>
+ </form>
+<script type="text/javascript">
+    var dataForm = new VarienForm('login-form', true);
+</script>

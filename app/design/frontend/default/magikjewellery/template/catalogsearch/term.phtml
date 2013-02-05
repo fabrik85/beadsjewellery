@@ -1,0 +1,27 @@
+<?php
+/**
+ * Theme: Magik Jewellery
+ * Author: MagentoMagik.com
+ * Version: 1.5
+ * URL: http://www.magentomagik.com/magento-themes/free-magento-themes/magik-jewellery-magento-theme/
+ * Source: http://www.magentomagik.com/
+ **/
+?>
+<div class="page-head">
+    <h2><?php echo $this->__('Popular Search Terms') ?></h2>
+</div>
+<?php if( sizeof($this->getTerms()) > 0 ): ?>
+<div class="box base-mini mini-product-tags">
+    <div class="content">
+    <ul class="bare-list">
+        <?php foreach ($this->getTerms() as $_term): ?>
+            <li><a href="<?php echo $this->getSearchUrl($_term) ?>" style="font-size:<?php echo $_term->getRatio()*70+75 ?>%;"><?php echo $this->htmlEscape($_term->getName()) ?></a></li>
+        <?php endforeach; ?>
+    </ul>
+    </div>
+</div>
+<?php else: ?>
+    <div class="note-msg">
+        <?php echo $this->__('There are no search terms available.'); ?>
+    </div>
+<?php endif ?>

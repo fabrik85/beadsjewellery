@@ -1,0 +1,44 @@
+<?php
+/**
+ * Theme: Magik Jewellery
+ * Author: MagentoMagik.com
+ * Version: 1.5
+ * URL: http://www.magentomagik.com/magento-themes/free-magento-themes/magik-jewellery-magento-theme/
+ * Source: http://www.magentomagik.com/
+ **/
+?>
+<?php
+/**
+ * Category layered navigation
+ *
+ * @see Mage_Catalog_Block_Layer_View
+ */
+?>
+<?php if($this->canShowBlock()): ?>
+    <div class="box layered-nav">
+        <div class="head">
+            <h3><?php echo $this->__('Shop by') ?></h3>
+        </div>
+
+        <div class="border-creator">
+        <?php echo $this->getStateHtml() ?>
+        <?php if($this->canShowOptions()): ?>        	
+            <div class="narrow-by">
+                <strong><?php echo $this->__('Shopping Options') ?></strong>
+            <div id="narrow-by-list">
+                <?php $_filters = $this->getFilters() ?>
+                <?php foreach ($_filters as $_filter): ?>
+                <?php if($_filter->getItemsCount()): ?>                
+                <?php echo strtoupper($this->__($_filter->getName())) ?>
+                <?php echo $_filter->getHtml() ?>
+                <?php endif; ?>
+                <?php endforeach; ?>
+            </div>
+            <script type="text/javascript">decorateDataList('narrow-by-list')</script>
+            </div>
+            <?php endif; ?>
+        </div>
+    </div>   
+    <br/>
+<?php endif; ?>
+<!-- [ends] .browse-by // -->

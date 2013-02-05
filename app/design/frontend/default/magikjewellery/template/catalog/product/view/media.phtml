@@ -1,0 +1,45 @@
+<?php
+/**
+ * Theme: Magik Jewellery
+ * Author: MagentoMagik.com
+ * Version: 1.5
+ * URL: http://www.magentomagik.com/magento-themes/free-magento-themes/magik-jewellery-magento-theme/
+ * Source: http://www.magentomagik.com/
+ **/
+
+/**
+ * Product media data template
+ *
+ * @see Mage_Catalog_Block_Product_View_Media
+ */
+?>
+
+<?php
+$_product = $this->getProduct();
+$_helper = $this->helper('catalog/output');
+?>
+<div class="flashContent" style="width: 390px;"><?php if ($_product->getImage() != 'no_selection' && $_product->getImage()): ?>
+<p class="product-image-zoom"><?php
+$_img = '<img id="image" src="'.$this->helper('catalog/image')->init($_product, 'image')->resize(265).'" alt="'.$this->htmlEscape($this->getImageLabel()).'" title="'.$this->htmlEscape($this->getImageLabel()).'" />';
+echo $_helper->productAttribute($_product, $_img, 'image')
+?></p>
+
+<?php else: ?> <?php
+$_img = '<img src="'.$this->helper('catalog/image')->init($_product, 'image')->resize(265).'" alt="'.$this->htmlEscape($_product->getImageLabel()).'" />';
+echo $_helper->productAttribute($_product, $_img, 'image')
+?> <?php endif; ?></div>
+<?php if (count($this->getGalleryImages()) > 0): ?>
+<div class="more-views">
+<h4><?php echo $this->__('More Views (Click to view large image)') ?></h4>
+<ul>
+<?php foreach ($this->getGalleryImages() as $_image): ?>
+	<li><a
+		href="<?php echo $this->helper('catalog/image')->init($this->getProduct(), 'image', $_image->getFile()); ?>"
+		rel="lightbox[rotation]" title="<?php echo $_product->getName();?>"><img
+		src="<?php echo $this->helper('catalog/image')->init($this->getProduct(), 'thumbnail', $_image->getFile())->resize(56, 56); ?>"
+		width="56" height="56" alt="" /></a></li>
+		<?php endforeach; ?>
+</ul>
+</div>
+		<?php endif; ?>
+

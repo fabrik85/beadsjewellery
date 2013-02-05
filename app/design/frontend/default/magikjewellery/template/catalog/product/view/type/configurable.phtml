@@ -1,0 +1,24 @@
+<?php
+/**
+ * Theme: Magik Jewellery
+ * Author: MagentoMagik.com
+ * Version: 1.5
+ * URL: http://www.magentomagik.com/magento-themes/free-magento-themes/magik-jewellery-magento-theme/
+ * Source: http://www.magentomagik.com/
+ **/
+
+
+/**
+ * Super product options
+ *
+ * @see Mage_Catalog_Block_Product_View_Super_Config
+ */
+?>
+<?php $_product = $this->getProduct() ?>
+<?php if($_product->isSaleable()): ?>
+    <p class="availability"><?php echo $this->__('Availability: In stock.') ?></p>
+<?php else: ?>
+    <p class="availability"><?php echo $this->__('Availability: Out of stock.') ?></p>
+<?php endif; ?>
+
+<?php echo $this->getPriceHtml($_product) ?>

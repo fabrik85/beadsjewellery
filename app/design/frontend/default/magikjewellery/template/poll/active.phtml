@@ -1,0 +1,54 @@
+<?php
+/**
+ * Theme: Magik Jewellery
+ * Author: MagentoMagik.com
+ * Version: 1.5
+ * URL: http://www.magentomagik.com/magento-themes/free-magento-themes/magik-jewellery-magento-theme/
+ * Source: http://www.magentomagik.com/
+ **/
+?>
+<?php if(isset($poll)) : ?>
+
+<script type="text/javascript">
+//<![CDATA[
+    function validatePollAnswerIsSelected()
+    {
+        var options = $$('input.poll_vote');
+
+        for( i in options ) {
+            if( options[i].checked == true ) {
+                return true;
+            }
+        }
+        return false;
+    }
+//]]>
+</script>
+
+<div class="box layered-nav">
+    <div class="head">
+        <h3><span><?php echo $this->__('Community Poll') ?></span></h3>
+    </div>
+    <form id="pollForm" action="<?php echo $action ?>" method="post" onsubmit="return validatePollAnswerIsSelected();">
+        <div class="content">
+            <strong><?php echo $poll->getPollTitle(); ?></strong>
+            <?php if( $poll_answers ): ?>
+                    <table cellspacing="2">
+                        <tbody>
+                            <?php foreach( $poll_answers as $answer ): ?>
+                            <tr>
+                                <td><input type="radio" name="vote" class="poll_vote" id="vote_<?php echo $answer->getId() ?>" value="<?php echo $answer->getAnswerId() ?>" /></td>
+                                <td><label for="vote_<?php echo $answer->getId() ?>"><?php echo $answer->getAnswerTitle() ?></label>&nbsp;</td>
+                            </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
+            <?php endif; ?>
+        </div>
+        <div class="actions">
+       
+        <button class="form-button-alt left" type="submit"><span><?php echo $this->__('Vote') ?></span></button>
+        </div>
+    </form>
+</div><br/>
+<?php endif; ?>

@@ -1,0 +1,12 @@
+<?php
+/**
+ * Theme: Magik Jewellery
+ * Author: MagentoMagik.com
+ * Version: 1.5
+ * URL: http://www.magentomagik.com/magento-themes/free-magento-themes/magik-jewellery-magento-theme/
+ * Source: http://www.magentomagik.com/
+ **/
+?>
+<?php if ($this->getOrderHasDownloadable()): ?>
+<?php echo Mage::helper('downloadable')->__('Go to <a href="%s">My Downloadable Products</a>', $this->getDownloadableProductsUrl()) ?>
+<?php endif; ?>

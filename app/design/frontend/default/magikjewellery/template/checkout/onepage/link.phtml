@@ -1,0 +1,17 @@
+<?php
+/**
+ * Theme: Magik Jewellery
+ * Author: MagentoMagik.com
+ * Version: 1.5
+ * URL: http://www.magentomagik.com/magento-themes/free-magento-themes/magik-jewellery-magento-theme/
+ * Source: http://www.magentomagik.com/
+ **/
+?>
+<?php if ($this->isPossibleOnepageCheckout()):?>
+<?php if ($this->isDisabled()):?>
+<button class="form-button-alt" type="button"><span><?php echo $this->__('Checkout') ?></span></button>
+<?php else: ?>
+<button class="form-button-alt" type="button" onclick="window.location='<?php echo $this->getCheckoutUrl() ?>';"><span><?php echo $this->__('Checkout') ?></span></button>
+<br>
+<?php endif?>
+<?php endif?>

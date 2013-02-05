@@ -1,0 +1,23 @@
+<?php
+/**
+ * Theme: Magik Jewellery
+ * Author: MagentoMagik.com
+ * Version: 1.5
+ * URL: http://www.magentomagik.com/magento-themes/free-magento-themes/magik-jewellery-magento-theme/
+ * Source: http://www.magentomagik.com/
+ **/
+?>
+
+<?php $_product = $this->getProduct() ?>
+
+<?php if($_product->isSaleable()): ?>
+<br/>    
+	<fieldset class="add-to-cart-box">	
+	    <div>      
+        <?php if(!$_product->isGrouped()): ?>
+        <input name="qty" type="text" class="input-text qty" id="qty" maxlength="12" size="3" value="<?php echo $this->getMinimalQty($_product) ?>" />&nbsp;
+        <?php endif; ?>       
+        <button type="button" class="form-button" onclick="productAddToCartForm.submit()" style="align:absmiddle;"><span><?php echo $this->__('Add to Cart') ?></span></button>
+        </div>
+    </fieldset>
+<?php endif; ?>

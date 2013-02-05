@@ -1,0 +1,31 @@
+<?php
+/**
+ * Theme: Magik Jewellery
+ * Author: MagentoMagik.com
+ * Version: 1.5
+ * URL: http://www.magentomagik.com/magento-themes/free-magento-themes/magik-jewellery-magento-theme/
+ * Source: http://www.magentomagik.com/
+ **/
+?>
+<?php  if($crumbs && is_array($crumbs)): ?>
+
+<div class="breadcrumbs">
+    <?php foreach($crumbs as $_crumbName=>$_crumbInfo): ?>
+        
+        <?php if($_crumbInfo['link']): ?>
+            <a href="<?php echo $_crumbInfo['link'] ?>" title="<?php echo $_crumbInfo['title'] ?>"><?php echo $_crumbInfo['label'] ?></a>
+        <?php elseif($_crumbInfo['last']): ?>
+            <strong><?php echo $_crumbInfo['label'] ?></strong>
+        <?php else: ?>
+            <?php echo $_crumbInfo['label'] ?>
+        <?php endif; ?>
+        
+        <?php if(!$_crumbInfo['last']): ?>
+       &raquo;
+        <?php endif; ?>
+    <?php endforeach; ?>
+</div>
+<?php else :?>
+
+<?php endif; ?>
+
