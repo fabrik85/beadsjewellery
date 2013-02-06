@@ -11,10 +11,11 @@
  * @var Mage_Page_Block_Html_Header $this
  */
 ?>
-<div class="header-container" style="background: url('<?php echo $this->getSkinUrl('images/BgHeader.png') ?>') left top;">
+<!-- <div class="header-container" style="background: url('<?php //echo $this->getSkinUrl('images/BgHeader.png') ?>') left top;"> -->
+<div class="header-container" style=" background: none; background-color: white;">
     <div class="header" style="padding: 30px;">
         <?php if ($this->getIsHomePage()):?>
-        <h1 class="logo"><strong><?php echo $this->getLogoAlt() ?></strong><a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo"><img src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" /></a></h1>
+        <h1 class="logo"><strong><?php echo $this->getLogoAlt() ?></strong><a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo"><img src="<?php echo $this->getSkinUrl('images/logo.png')//$this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" /></a></h1>
         <?php else:?>
         <a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo"><strong><?php echo $this->getLogoAlt() ?></strong><img src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" /></a>
         <?php endif?>
